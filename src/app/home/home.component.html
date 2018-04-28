@@ -1,0 +1,46 @@
+<div class="container">
+    <h1>Project</h1>
+    <div class="row">
+      <div class="col">
+          <form (ngSubmit)="onSent(f)" #f="ngForm">
+              <div class="form-group">
+                <label for="exampleFormControlFile1"><h3>Upload your File</h3></label>
+                <input type="file" (change)="fileEvent($event)" id="filedata" name="filedata" required class="form-control-file"  ngModel>
+              </div>
+              <p class="warning">{{fileExtensionMessage}}</p>
+              <div *ngIf="fileselected">
+              <select class="custom-select" name="inputGroupSelect" [(ngModel)]="name">
+                  <option *ngFor="let list of dropdown;" [value]="list">{{list}}</option>
+                </select>
+                </div>
+                <br />
+              <input type="submit" [disabled]='fileExtensionError' class="btn btn-primary" value="SEND">
+          </form>
+      </div>
+
+    </div>
+    <br />
+    <br />
+    <h3>Response data</h3>
+    <div style="text-align:center;" *ngIf="loading == true" class="loader"><img style="width:80px;" src="../../assets/lg.comet-spinner.gif"></div>
+    <br />
+    <h4 *ngIf="loading == false">Standard Deviation: {{resData?.standard_deviation}}</h4>
+      <table class="table">
+          <thead>
+            <tr>
+              <th scope="col" *ngFor="let key of array">{{key}}</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td *ngFor="let val of array2">{{val}}</td>
+            </tr>
+          </tbody>
+        </table>
+    <br />
+    <div class="row">
+      <div class="col-12">
+    <img style="width:100%" *ngIf="loading == false" src="data:image/png;base64,{{resData?.graph}}" />
+    </div>
+    </div>
+</div>
