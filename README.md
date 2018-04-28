@@ -1,5 +1,13 @@
 # Project
 
+This is a project for detection of anomaly in wheather.
+Its front end is developed in angular 5 and backend in django.
+A csv file is uploaded and dynamically its content is shown after upload is completed.
+User has to select a state from the dropdown menu which contains all the list of states of india.
+By pressing the send button data is send to server, which in reponse send data of anomaly with graph images.
+
+
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.3.
 
 ## Development server
